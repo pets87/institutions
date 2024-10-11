@@ -1,0 +1,8 @@
+{
+  "host.app.nav.institutions": "Asutused",
+  "host.app.footer.email": "abi@rahvastikuregister.ee",
+  "host.app.footer.rrinfo": "Loen rahvastikuregistri kohta",
+  "host.app.footer.govinfo": "Kohalike omavalitsuste andmed",
+  "host.app.footer.terms": "Kasutustingimused",
+  "host.page-admin.description": "See admin leht on loodud ainult näidisena. Vali menüüst 'Institutions', et näha proovitööd. Rakendus on üles ehitatud kasutades 'module federation' lähenemist, kuna hankes oli välja toodud, et kasutusel on mikrofrontend lähenemine."
+}

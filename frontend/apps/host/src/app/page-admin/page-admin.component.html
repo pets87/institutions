@@ -1,0 +1,18 @@
+<div>
+  <mat-card appearance="outlined">
+    <mat-card-content> {{ "host.page-admin.description" | translate }}</mat-card-content>
+  </mat-card>
+
+  <br />
+  <h3>{{"form.label.translations" | translate}}</h3>
+  
+  <mat-tab-group>
+    <mat-tab label="{{item}}" *ngFor="let item of translationTypes">
+      <rr-component-edit-translations [translationtype]="item"></rr-component-edit-translations>
+    </mat-tab>
+   
+  </mat-tab-group>
+
+
+
+</div>

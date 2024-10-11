@@ -1,0 +1,8 @@
+{
+  "host.app.nav.institutions": "Institutions",
+  "host.app.footer.email": "abi@rahvastikuregister.ee",
+  "host.app.footer.rrinfo": "Read about population register",
+  "host.app.footer.govinfo": "Data of local governments",
+  "host.app.footer.terms": "Terms of usage",
+  "host.page-admin.description": "This admin page has been created as a demonstration. Select 'Institutions' from the menu to see the sample work. The application has been built using the 'module federation' approach, as the tender specified that a microfrontend approach is being used."
+}

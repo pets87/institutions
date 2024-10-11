@@ -1,0 +1,96 @@
+<br />
+<div id="div-cards-flex">
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <div id="div-institution-data">
+        <input type="hidden" [(ngModel)]="institution.id">
+        <mat-form-field appearance="fill">
+          <mat-label>{{"institutions.page-main.table.col.type" | translate}}</mat-label>
+          <select matNativeControl required [(ngModel)]="institution.type_classifier_id">
+            <option *ngFor="let item of institutionTypes" [value]="item.id">
+              {{ (item.name_translation_code | translate) !== item.name_translation_code ? (item.name_translation_code | translate) : item.name }}
+            </option>
+          </select>
+          <mat-error *ngIf="formErrors.includes('institution.type_classifier_id')">{{"institutions.page-edit-institution.error.type_classifier_id" | translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{"institutions.page-main.table.col.regcode" | translate}} </mat-label>
+          <input matInput required [(ngModel)]="institution.reg_code">
+          <mat-error *ngIf="formErrors.includes('institution.reg_code')">{{"institutions.page-edit-institution.error.reg_code" | translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{"institutions.page-main.table.col.kmkr" | translate}} </mat-label>
+          <input matInput [(ngModel)]="institution.kmkr">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>{{"institutions.page-main.table.col.address" | translate}}</mat-label>
+          <input type="text"
+                 placeholder="Search address"
+                 aria-label="Addresses"
+                 matInput
+                 required
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto"
+                 [value]="selectedAddress?.address_text">
+          <mat-autocomplete #auto="matAutocomplete"  (optionSelected)="onAddressSelected($event)">          
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" >{{option.address_text}}</mat-option>            
+          </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label> {{"institutions.page-main.table.col.validfrom" | translate}} </mat-label>
+          <input matInput required [matDatepicker]="pickerFrom" [(ngModel)]="institution.valid_from">
+          <mat-error *ngIf="isValid('institution.valid_from')">{{"institutions.page-edit-institution.error.valid_from" | translate}}</mat-error>
+          <mat-hint>{{"form.date.format" | translate }}</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label> {{"institutions.page-main.table.col.validto" | translate}} </mat-label>
+          <input matInput [matDatepicker]="pickerTo" [(ngModel)]="institution.valid_to">
+          <mat-hint>{{"form.date.format" | translate }}</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="pickerTo"></mat-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card appearance="outlined">
+    <mat-card-content>
+      <div id="div-institution-name">
+        <mat-form-field appearance="fill">
+          <mat-label>{{"institutions.page-main.table.col.name" | translate}} </mat-label>
+          <input matInput required [(ngModel)]="institution.name">
+          <mat-error *ngIf="formErrors.includes('institution.name')">{{"institutions.page-edit-institution.error.name" | translate}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div id="div-institution-translation">
+        <mat-accordion>
+          <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+              <mat-panel-title> {{"form.label.translations" | translate}} </mat-panel-title>
+              <mat-panel-description>
+                {{"institutions.page-edit-institution.translations.description" | translate}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div id="div-languages" *ngFor="let item of institutionTranslations">
+              <mat-form-field appearance="fill">
+                <mat-label> {{item.language }} </mat-label>
+                <input matInput [(ngModel)]="item.text">
+              </mat-form-field>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<br />
+<section>
+  <div id="div-buttons">
+    <button mat-flat-button color="primary" (click)="save()">{{"form.button.save" | translate}}</button>
+    <button mat-button (click)="back()">{{"form.button.back" | translate}}</button>
+  </div>
+</section>
+<br />

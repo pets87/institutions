@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200" # host app
+      - "4201:4201" # remote app
+    depends_on:
+      - service
+
+  service:
+    build:
+      context: ./InstitutionsService
+      dockerfile: Dockerfile
+    ports:
+      - "7255:8080"
+    environment:
+      - RabbitConnectionstring=amqp://guest:guest@host.docker.internal:5672
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      
+  rabbitmq:
+    image: rabbitmq:4.0-management
+    hostname: rmq
+    ports:
+      - "8080:15672" # RabbitMQ management UI
+      - "5672:5672"  # RabbitMQ server
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    healthcheck: #service will create queue's on startup, so wait until rabbit is fully ready
+      test: ["CMD", "rabbitmq-diagnostics", "check_running"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

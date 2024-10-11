@@ -1,0 +1,12 @@
+export class Constants {
+  public static readonly TRANSLATION_TYPE_FRONTENT = "FRONTEND";
+  public static readonly TRANSLATION_TYPE_CLASSIFIER = "CLASSIFIER";
+  public static readonly TRANSLATION_TYPE_INSTITUTION = "INSTITUTION";
+
+
+  public static readonly CLASSIFIER_GROUP_INSTITUTION_TYPE = "INSTITUTION_TYPE";
+  public static readonly CLASSIFIER_GROUP_REPLICAITON_ENV = "REPLICAITON_ENV";
+  public static readonly CLASSIFIER_GROUP_REPLICAITON_SYSTEM = "REPLICAITON_SYSTEM";
+
+
+}

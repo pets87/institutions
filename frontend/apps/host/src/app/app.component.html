@@ -1,0 +1,68 @@
+
+
+<div id="page-wrapper">
+  <div id="header">
+
+    <a href="/">
+      <img src="/assets/sim-est-logo.1e76632a7b9d62dc.svg" alt="Logo" />
+    </a>
+
+    <ul id="nav">
+      <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="[getRouterLinkFor('/')]">RR Admin</a></li>
+      <li><a routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="[getRouterLinkFor('institutions')]">{{ "host.app.nav.institutions" | translate }}</a></li>
+    </ul>
+
+    <div>
+      <a class="a-lang" [ngClass]="{'active-lang': selectedLanguage === 'et'}" (click)="switchLanguage('et')">EST</a>
+      <a class="a-lang" [ngClass]="{'active-lang': selectedLanguage === 'en'}" (click)="switchLanguage('en')">ENG</a>
+    </div>
+  </div>
+  <div id="content">
+    <div id="content-page">
+      <router-outlet></router-outlet>
+    </div>  
+  </div>
+  <div id="footer">
+    <div id="footer-container">
+      <div id="footer-data">
+        <div class="div-footer-item">
+          <div class="div-round">&#9993;</div>
+          <div>
+            <a href="mailto:abi@rahvastikuregister.ee">{{ "host.app.footer.email" | translate }}</a>
+          </div>
+        </div>
+        <div class="div-footer-item">
+          <div class="div-round">&#8505;</div>
+          <div>
+            <a target="_blank" href="https://www.siseministeerium.ee/et/eesmark-tegevused/rahvastikutoimingud/rahvastikuregister">
+              {{ "host.app.footer.rrinfo" | translate }} &#10095;
+            </a>
+            <br />
+            <a target="_blank" href="https://www.eesti.ee/est/kontaktid/kohalikud_omavalitsused">
+              {{ "host.app.footer.govinfo" | translate }} &#10095;
+            </a>
+          </div>
+        </div>
+        <div class="div-footer-item">
+          <div class="div-round">&#9743;</div>
+          <div>
+            <span>+372 612 4444</span><br />
+            <span>(E–R 8.15–17.00)</span>
+          </div>
+        </div>
+        <div class="div-footer-item">
+          <div class="div-round">&#10004;</div>
+          <a target="_blank" href="#">
+            {{ "host.app.footer.terms" | translate }}
+          </a>
+        </div>
+      </div>
+      <div id="div-footer-images">
+        <img src="/assets/es_el_logo1.97af82c43ecbc68f.jpg" alt="Euroopa Liit Euroopa Regionaalarendus fond" />
+        <img src="/assets/es_el_logo2.f7f1aac2f4d5c60d.jpg" alt="Rahastanud Euroopa Liit" />
+      </div>
+    </div>
+  </div>
+  </div>
+
+

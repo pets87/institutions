@@ -1,0 +1,35 @@
+#div-cards-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+#div-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
+}
+.mat-mdc-header-cell {
+  font-weight: bold;
+}
+dialog {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid gray;
+  border-radius: 2em;
+  width: 50%;
+
+  #dialog-header {
+    font-size: 1em;
+    cursor: pointer;
+    text-align: right;
+  }
+
+  #dialog-content {
+    margin-top: 1em;
+    text-align: center;
+  }
+}
+

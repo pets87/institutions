@@ -1,0 +1,27 @@
+
+<br />
+<div>{{"component-edit-translations.changetext" | translate}}</div>
+<div>{{"component-edit-translations.infotext" | translate}}</div>
+<br />
+<table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+  <ng-container matColumnDef="code">
+    <th mat-header-cell *matHeaderCellDef> {{"form.label.translationcode" | translate}} </th>
+    <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+  </ng-container>
+
+  <ng-container *ngFor="let column of displayedColumns | slice:1" [matColumnDef]="column">
+    <th mat-header-cell *matHeaderCellDef> {{ column }} </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-form-field>
+        <mat-label>{{column}}</mat-label>
+        <input matInput [(ngModel)]="element[column]"  (change)="updateTranslation(element)"/>
+      </mat-form-field>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<rr-top-message [message]="tempMessage"></rr-top-message>

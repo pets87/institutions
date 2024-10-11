@@ -1,0 +1,11 @@
+<mat-tab-group>
+  <mat-tab label="{{'institutions.page-edit-institution.tab.institution' | translate}}">
+    <rr-component-edit-institution></rr-component-edit-institution>
+  </mat-tab>
+  <mat-tab label="{{'institutions.page-edit-institution.tab.publish' | translate}}" [disabled]="isPublishTabDisabled">
+    <rr-component-publish-institution></rr-component-publish-institution>
+  </mat-tab>
+</mat-tab-group>
+
+
+<br />
