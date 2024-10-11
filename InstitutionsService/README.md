@@ -1,7 +1,7 @@
 
 # InstitutionsService
 
-Webservice for person specific operations. 
+Webservice for institution specific operations. 
 - Framework: dotnet 8.0.0 
 - SDK: 8.0.303 
 - Runtime: 8.0.7
