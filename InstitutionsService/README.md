@@ -59,9 +59,32 @@ Run command:
 Local OpenApi (Swagger) url: http://localhost:7255/swagger/index.html
 
 ## Configuration
-No configuration 
 
 Uses Entity Framework Core In-Memory database. 
+
+
+### Environment variables
+
+| Setting key | Example value | Description |
+|--|--|--|
+| RabbitConnectionstring | amqp://guest:guest@host.docker.internal:5672 | Whole connectionstring. If set, then other Rabbit settings are ignored. |
+| RabbitHost |localhost | Rabbit connection settings - host |
+| RabbitPort| 5672 |  Rabbit connection settings - port |
+| RabbitUser | guest |  Rabbit connection settings - user  |
+| RabbitPassword | guest |  Rabbit connection settings - password  |
+
+
+### appsettings.json
+
+```
+ "ConnectionStrings": { "InMemoryDbName": "InstitutionsDb" },
+ "RabbitHost": "localhost",
+ "RabbitPort": "5672",
+ "RabbitUser": "guest",
+ "RabbitPassword": "guest"
+```
+
+
 
 ## Test
 Navigate to project root folder.
